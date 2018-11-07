@@ -1,0 +1,30 @@
+{
+    "name": "phpfacile/cfc-core",
+    "description": "Core library for the 'CFC' project.",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "phpfacile/event-json": "^1.0",
+        "phpfacile/geocoding": "^1.0",
+        "phpfacile/geocoding-db-zend": "^1.0",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/message": "^1.7",
+        "zendframework/zend-db": "^2.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2",
+        "squizlabs/php_codesniffer": "3.*"
+    },
+    "scripts": {
+        "cs-check": "phpcs -s src",
+        "cs-check-psr": "phpcs -s --standard=PSR1,PSR2 src",
+        "cs-check-pear": "phpcs -s --standard=PEAR src",
+        "cs-fix": "phpcbf src",
+        "test": "phpunit --colors=always --testsuite \"all tests\""
+    },
+    "autoload": {
+        "psr-4": {
+          "CFC\\": "src/"
+        }
+    }
+}
