@@ -1,0 +1,1 @@
+* EVOL Store more event submission data (submitter, url, event type, etc.) and allowing storing with no previous geocoding

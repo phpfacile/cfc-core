@@ -4,12 +4,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "phpfacile/event-json": "^1.0",
-        "phpfacile/geocoding": "^1.0",
-        "phpfacile/geocoding-db-zend": "^1.0",
-        "php-http/guzzle6-adapter": "^1.1",
-        "php-http/message": "^1.7",
-        "zendframework/zend-db": "^2.5"
+        "phpfacile/event-json": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.2",
