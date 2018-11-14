@@ -120,6 +120,10 @@ class CfcService
     public static function getFormEventSubmissionFromEventSubmission($eventSubmission)
     {
         $formEventSubmission = new \StdClass();
+
+        // REM submissionDateTimeUTC is not really part of the form
+        $formEventSubmission->submissionDateTimeUTC = $eventSubmission->submissionDateTimeUTC;
+
         // TAKE CARE: Better use a facade design pattern
         $formEventSubmission->submitter = clone $eventSubmission->submitter;
 
@@ -145,11 +149,27 @@ class CfcService
     public function getNextFormEventSubmissionToBeValidated()
     {
         $eventSubmission = $this->eventService->getNextEventSubmissionToBeValidated();
-        if (null === $eventSubmission) return null;
+        if (null === $eventSubmission) {
+            return null;
+        }
 
         return self::getFormEventSubmissionFromEventSubmission($eventSubmission);
     }
 
+    public function getNextFormEventsSubmissionToBeValidated($limit = 10)
+    {
+        $eventSubmissions = $this->eventService->getNextEventSubmissionsToBeValidated($limit);
+        if (0 === count($eventSubmissions)) {
+            return [];
+        }
+
+        $formEventSubmissions = [];
+        foreach ($eventSubmissions as $eventSubmission) {
+            $formEventSubmissions[] = self::getFormEventSubmissionFromEventSubmission($eventSubmission);
+        }
+
+        return $formEventSubmissions;
+    }
 
 
     /**

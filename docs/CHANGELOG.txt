@@ -1,3 +1,6 @@
+* EVOL Allow retrieval of a list of events
+* EVOL Manage event submission datetime UTC
+
 1.0.1 (2018-11-13)
 ------
 * EVOL Store more event submission data (submitter, url, event type, etc.) and allowing storing with no previous geocoding
