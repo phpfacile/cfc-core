@@ -1,6 +1,8 @@
 <?php
 namespace CFC\Service;
 
+use PHPFacile\Zend\Db\Helper\ZendDbHelper;
+
 class CfcService
 {
     /**
@@ -105,7 +107,7 @@ class CfcService
         $this->eventService->insertStdClassEventSubmission($eventSubmission);
     }
 
-    public function updateAndValidateFormEventSubmission($formEventSubmission, $geocodedPlace)
+    public function updateAndValidateFormEventSubmission($formEventSubmission, $geocodedPlace, $user)
     {
         $eventSubmission = self::getEventSubmissionFromFormEventSubmission($formEventSubmission);
 
@@ -114,7 +116,13 @@ class CfcService
 
         $eventSubmission->status = 'validated';
 
-        $this->eventService->updateStdClassEventSubmission($eventSubmission);
+        $extraFields = [
+            'validated_by_user_login' => $user->login,
+            // A little bit ugly I must admit
+            'validated_on_datetime_utc' => ZendDbHelper::getUTCTimestampExpression($this->eventService->getAdapter()),
+        ];
+
+        $this->eventService->updateStdClassEventSubmission($eventSubmission, $extraFields);
     }
 
     public static function getFormEventSubmissionFromEventSubmission($eventSubmission)

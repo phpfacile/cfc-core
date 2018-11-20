@@ -1,3 +1,5 @@
+* EVOL Now stores validator's login on event validation
+
 1.0.2 (2018-11-14)
 ------
 * EVOL Allow retrieval of a list of events
