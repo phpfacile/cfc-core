@@ -76,9 +76,12 @@ class CfcService
         $event->location->place       = new \StdClass();
         $event->location->place->name = $formEvent->location->place->name;
 
+        // Country
         $event->location->place->country       = new \StdClass();
-        $event->location->place->country->name = $formEvent->location->place->country->name;
         $event->location->place->country->code = $formEvent->location->place->country->code;
+        if (property_exists($formEvent->location->place->country, 'name')) {
+            $event->location->place->country->name = $formEvent->location->place->country->name;
+        }
 
         $eventSubmission = new \StdClass();
         if (property_exists($formEventSubmission, 'id')) {
