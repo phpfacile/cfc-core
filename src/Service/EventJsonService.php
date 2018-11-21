@@ -18,18 +18,18 @@ class EventJsonService extends DefaultEventJsonService
         $row4JSON = [
             'longitude'       => $row['geocoded_longitude'],
             'latitude'        => $row['geocoded_latitude'],
-            'url'             => '(not filled)',
-            'event_type_name' => '(not filled)',
-            'start_time'      => '(not filled)',
+            'url'             => $row['url'],
+            'event_type_name' => $row['type'],
+            'start_time'      => substr($row['datetime_start'], 11),
             'start_dt'        => $row['datetime_start'],
             'name'            => $row['name'],
             'location'        => $row['location_place'].', '.$row['location_country'],
-            'capacity'        => '(not filled)',
+            'capacity'        => 0,
             'id'              => $row['event_id'],
             'start_day'       => substr($row['datetime_start'], 0, 10),
-            'venue_zip'       => '(not filled)',
-            'is_official'     => '(not filled)',
-            'id_obfuscated'   => '(not filled)',
+            'venue_zip'       => $row['postal_code'],
+            'is_official'     => ('validated' === $row['status'])?1:0,
+            'id_obfuscated'   => $row['event_id'],
         ];
         return $row4JSON;
     }

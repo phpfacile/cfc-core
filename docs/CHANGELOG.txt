@@ -1,3 +1,4 @@
+* EVOL Event JSON representation is now completed (all fields filled)
 * EVOL country name is not required (country code is enough)
 * EVOL Now stores validator's login on event validation
 
