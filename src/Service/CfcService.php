@@ -120,9 +120,9 @@ class CfcService
         $eventSubmission->status = 'validated';
 
         $extraFields = [
-            'validated_by_user_login' => $user->login,
+            'moderated_by_user_login' => $user->login,
             // A little bit ugly I must admit
-            'validated_on_datetime_utc' => ZendDbHelper::getUTCTimestampExpression($this->eventService->getAdapter()),
+            'moderated_on_datetime_utc' => ZendDbHelper::getUTCTimestampExpression($this->eventService->getAdapter()),
         ];
 
         $this->eventService->updateStdClassEventSubmission($eventSubmission, $extraFields);

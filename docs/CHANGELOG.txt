@@ -1,6 +1,6 @@
+* EVOL Now stores moderator's login on event validation or rejection + Include custom SQL scripts
 * EVOL Event JSON representation is now completed (all fields filled)
 * EVOL country name is not required (country code is enough)
-* EVOL Now stores validator's login on event validation
 
 1.0.2 (2018-11-14)
 ------
