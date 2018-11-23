@@ -1,3 +1,5 @@
+* EVOL address needs not being NOT NULL as well as place name (if we want to manage nationwild events)
+
 1.0.3 (2018-11-22)
 ------
 * EVOL Now stores moderator's login on event validation or rejection + Include custom SQL scripts

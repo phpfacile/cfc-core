@@ -13,7 +13,7 @@ CREATE TABLE events (
     datetime_start_utc DATETIME NULL,
     datetime_end_utc DATETIME NULL,
     address VARCHAR(255) NULL,
-    place_name VARCHAR(200) NOT NULL,
+    place_name VARCHAR(200) NULL,
     postal_code VARCHAR(32) NULL,
     country_code VARCHAR(2) NOT NULL,
     url VARCHAR(255) NULL,
